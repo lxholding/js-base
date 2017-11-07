@@ -1,0 +1,36 @@
+{
+  "workbench.iconTheme": "vscode-icons",
+  "editor.minimap.enabled": true,
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "vue"
+  ],
+  "emmet.syntaxProfiles": {
+    "vue-html": "html",
+    "vue": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "vue-html": "html"
+  },
+  "sync.gist": "99935644ee4ae01bc5f5031311a8cdf1",
+  "sync.lastUpload": "2017-11-07T09:33:39.617Z",
+  "sync.autoDownload": false,
+  "sync.autoUpload": true,
+  "sync.lastDownload": "",
+  "sync.forceDownload": false,
+  "sync.anonymousGist": false,
+  "sync.host": "",
+  "sync.pathPrefix": "",
+  "sync.quietSync": false,
+  "workbench.sideBar.location": "left",
+  "sync.askGistName": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "terminal.integrated.scrollback": 10000,
+  "vetur.validation.template": true,
+  "prettier.eslintIntegration": true
+}
