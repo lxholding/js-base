@@ -1,13 +1,17 @@
 {
   "presets": [
-    ["env", {
-      "modules": false,
-      "useBuiltIns": true,
-      "targets": {
-        "browsers": ["> 1%", "last 2 versions", "ie > 8"]
-      },
-      "debug": true
-    }],
+    [
+      "env",
+      {
+        "modules": false,
+        "useBuiltIns": "usage",
+        "targets": {
+          "browsers": ["> 1%", "last 2 versions", "ie > 8"]
+        },
+        "shippedProposals": true,
+        "debug": true
+      }
+    ],
     "stage-2"
   ],
   "plugins": [

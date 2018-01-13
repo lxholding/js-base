@@ -7,6 +7,9 @@ module.exports = {
       css: false,
       gzipExtensions: []
     },
-    analyzerReport: false
+    analyzerReport: false,
+    proxy: {
+      log: false
+    }
   }
-}
+};

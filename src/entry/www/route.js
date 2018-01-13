@@ -1,6 +1,6 @@
-import VueRouter from 'vue-router'
+import VueRouter from 'vue-router';
 
-const Index = require('view/www/index.vue')
+const Index = require('view/www/index.vue');
 
 export default function (app) {
   const router = new VueRouter({
@@ -10,7 +10,7 @@ export default function (app) {
         component: Index
       }
     ]
-  })
+  });
 
-  return router
+  return router;
 }

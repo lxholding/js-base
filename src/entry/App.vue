@@ -22,12 +22,9 @@ export default {
           enable: false,
           exclude: '',
           include: ''
-        }
+        };
       }
     }
-  },
-  created() {
-    // console.log('App.vue created')
   }
-}
+};
 </script>

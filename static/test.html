@@ -1,0 +1,124 @@
+<html>
+<title>test</title>
+
+<body>
+  <script>
+    // 'use strict';
+    var p = 5;
+    function myFunc() {
+      var p = 9;
+
+      function decl() {
+        console.info(p);
+      }
+      var expr = function expr() {
+        console.info(p);
+      };
+
+      /* eslint no-new-func:off */
+      var cons = new Function('\tconsole.log(p);');
+
+      decl();
+      expr();
+      cons();
+    }
+    myFunc();
+
+    for (var i = 1; i <= 5; i++) {
+      setTimeout(function timer() {
+        console.log(i);
+      }, 1000);
+    }
+
+    // 只有ie9和久版本浏览器可以在if中声明函数，其他都报错ReferenceError
+    var run = true;
+    try {
+      foo5();
+    } catch (error) {
+      console.error('只有ie9和久版本浏览器可以在if中声明函数，其他都报错ReferenceError', error);
+    }
+    if (run) {
+      function foo5() {
+        console.info('foo5 1');
+      }
+    } else {
+      function foo5() {
+        console.info('foo5 2');
+      }
+    }
+
+    // this实例
+
+    function thisFoo() {
+      // "use strict";
+      var a = 'thisFoo 变量a';
+      console.log(this, this.a);
+      function thisFoo2() {
+        console.log('thisFoo > thisFoo2 上下文不受父函数影响', this, this.a);
+      }
+      thisFoo2();
+
+      function thisFoo3() {
+        console.log('使用call方法将指定对象绑定到this', this, this.a);
+      }
+      thisFoo3.call(this);
+
+      function thisFoo4() {
+        console.log('使用bind方法将指定对象绑定到this', this, this.a);
+      }
+
+      // 将函数硬绑定到指定对象,绑定后无法修改上下文
+      var func = thisFoo4.bind(this);
+      func();
+      func.call(1);
+    }
+    var a = 'thisFoo';
+    thisFoo();
+
+    function thisFoo2() {
+      console.log(this, this.a);
+    }
+    var a = 'thisFoo2';
+
+    thisFoo2();
+
+    var obj = {
+      a: 'obj.a',
+      thisFoo
+    }
+    obj.thisFoo();
+
+    // (function () {
+    //   'use strict';
+    //   thisFoo2();
+    // })();
+
+    console.info(typeof 'string');
+    console.info(typeof 1);
+    console.info(typeof true);
+    console.info(typeof null);
+    console.info(typeof undefined);
+    console.info(typeof {});
+
+    const prefix = 'foo';
+    const myObj3 = {
+      [`${prefix}bar`]: 'hello',
+      [`${prefix}baz`]: 'world'
+    };
+    console.dir(myObj3);
+
+    var name = 'window.name';
+    const obj2 = {
+      name: 'obj2.name',
+      sayName() {
+        console.info(this, this && this.name);
+      }
+    };
+    obj2.sayName();
+    (obj2.sayName)();
+    // 这里返回的是函数本身，所以this指向window
+    (obj2.sayName = obj2.sayName)();
+  </script>
+</body>
+
+</html>

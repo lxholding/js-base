@@ -1,5 +1,5 @@
-const merge = require('webpack-merge')
-const env = require('./base')
+const merge = require('webpack-merge');
+const env = require('./base');
 
 module.exports = merge(env, {
   build: {
@@ -9,4 +9,4 @@ module.exports = merge(env, {
       gzipExtensions: ['js', 'css']
     }
   }
-})
+});

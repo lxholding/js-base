@@ -1,27 +1,27 @@
-const path = require('path')
-const webpack = require('webpack')
-const webpackMerge = require('webpack-merge')
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const webpackMerge = require('webpack-merge');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 // 根据环境变量加载环境配置文件
-process.env.NODE_ENV = process.env.NODE_ENV || 'production'
-console.log('env:', process.env.NODE_ENV)
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+console.log('env:', process.env.NODE_ENV);
 global.context = {
   config: require(`./config/${process.env.NODE_ENV}`),
   isDev: process.env.NODE_ENV != 'production',
   devServer: {
     mode: process.env.DEV_SERVER_MODE || 'memory'
   }
-}
-console.log('env config:', JSON.stringify(context))
+};
+console.log('env config:', JSON.stringify(context));
 
 // 路径设置
-const rootPath = path.resolve(__dirname, '..')
-const publicPath = '/'
-const assetsPath = `${rootPath}/assets`
-const srcPath = `${rootPath}/src`
-const outputPath = `${rootPath}/dist/${process.env.NODE_ENV}`
-const viewPath = `${srcPath}/view`
+const rootPath = path.resolve(__dirname, '..');
+const publicPath = '/';
+const assetsPath = `${rootPath}/assets`;
+const srcPath = `${rootPath}/src`;
+const outputPath = `${rootPath}/dist/${process.env.NODE_ENV}`;
+const viewPath = `${srcPath}/view`;
 
 // 编译配置初始化
 global.build = webpackMerge(context.config.build, {
@@ -33,11 +33,11 @@ global.build = webpackMerge(context.config.build, {
   viewPath,
   // 展示构建分析报告
   analyzerReport: process.env.BUILD_ANALYZER_REPORT || false
-})
-console.log('build:', JSON.stringify(global.build))
+});
+console.log('build:', JSON.stringify(global.build));
 
 // 删除运行环境无用配置
-delete context.config.build
+delete context.config.build;
 
 module.exports = {
   output: {
@@ -55,7 +55,8 @@ module.exports = {
       css: `${srcPath}/css`,
       filter: `${srcPath}/filter`,
       plugin: `${srcPath}/plugin`,
-      assets: `${assetsPath}`
+      assets: `${assetsPath}`,
+      workers: `${srcPath}/workers`
     }
   },
   module: {
@@ -95,7 +96,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: true
+              cacheDirectory: false
             }
           }
         ]
@@ -127,6 +128,21 @@ module.exports = {
           limit: 10000,
           name: '[name].[hash:7].[ext]'
         }
+      },
+      {
+        // 注意：webworker中导入的库是独立打包的无法共享使用
+        test: /\.worker\.js$/,
+        use: [
+          {
+            loader: 'worker-loader'
+          },
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: false
+            }
+          }
+        ]
       }
     ]
   },
@@ -140,4 +156,4 @@ module.exports = {
     }),
     new webpack.optimize.ModuleConcatenationPlugin()
   ]
-}
+};
