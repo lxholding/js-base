@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "launch app",
+      "disableNetworkCache": true,
+      // "port": 9222,
+      "trace": true,
+      "url": "http://localhost",
+      "webRoot": "${workspaceRoot}",
+      "sourceMapPathOverrides": {
+        "webpack:///./~/*": "${webRoot}/node_modules/*",
+        // Example: "webpack:///./~/querystring/index.js" -> "/Users/me/project/node_modules/querystring/index.js"
+        "webpack:///src/*": "${webRoot}/src/*",
+        // Example: "webpack:///src/App.js" -> "C:/project/src/App.js"
+        "webpack:///*": "${webRoot}/src/components/*"
+        // Example: "webpack:///C:/project/hello.vue" -> "C:/project/src/hello.vue"
+      }
+    }
+  ]
+}

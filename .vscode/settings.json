@@ -1,0 +1,58 @@
+{
+  "workbench.iconTheme": "vscode-icons",
+  "editor.minimap.enabled": true,
+  "editor.formatOnSave": false,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 150,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "emmet.syntaxProfiles": {
+    "vue-html": "html",
+    "vue": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "vue-html": "html"
+  },
+  "sync.gist": "99935644ee4ae01bc5f5031311a8cdf1",
+  "sync.lastUpload": "2017-11-07T09:33:39.617Z",
+  "sync.autoDownload": false,
+  "sync.autoUpload": true,
+  "sync.lastDownload": "",
+  "sync.forceDownload": false,
+  "sync.anonymousGist": false,
+  "sync.host": "",
+  "sync.pathPrefix": "",
+  "sync.quietSync": false,
+  "workbench.sideBar.location": "left",
+  "sync.askGistName": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "terminal.integrated.scrollback": 10000,
+  "vetur.validation.template": true,
+  "prettier.eslintIntegration": true,
+  "javascript.validate.enable": false,
+  "javascript.format.enable": false,
+  "explorer.autoReveal": false
+}
