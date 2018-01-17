@@ -39,6 +39,8 @@ module.exports = {
     //     vue: 'never'
     //   }
     // ],
+    // 换行符号规则
+    'linebreak-style': 'off',
     'max-len': ['error', { code: 125, comments: 130 }],
     // 建议使用export default
     'import/prefer-default-export': 'off',

@@ -54,5 +54,6 @@
   "prettier.eslintIntegration": true,
   "javascript.validate.enable": false,
   "javascript.format.enable": false,
-  "explorer.autoReveal": false
+  "explorer.autoReveal": false,
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe"
 }

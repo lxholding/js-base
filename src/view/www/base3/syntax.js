@@ -1,3 +1,5 @@
+import singleInstance from './symbo';
+
 export default () => {
   function foo() {}
   {
@@ -476,7 +478,9 @@ export default () => {
     const text = `es6多行字符串
       第一行
       第二行
-      第三行`.replace(/\n/g, '').replace(/\s+/g, ' ');
+      第三行`
+      .replace(/\n/g, '')
+      .replace(/\s+/g, ' ');
     console.info(text);
 
     // 嵌套
@@ -853,8 +857,10 @@ export default () => {
     let gs2 = Symbol.for('s1');
     console.info(
       '全局Symbol',
-      globalSymbol === gs2, globalSymbol === Symbol('s1'),
-      Symbol.keyFor(globalSymbol), Symbol.keyFor(gs2)
+      globalSymbol === gs2,
+      globalSymbol === Symbol('s1'),
+      Symbol.keyFor(globalSymbol),
+      Symbol.keyFor(gs2)
     );
 
     // 在不同的iframe和service worker中共享
@@ -868,7 +874,9 @@ export default () => {
 
   // Symbol 属性名
   {
-    let s1 = Symbol('Symbol属性写法1'), s2 = Symbol('Symbol属性写法2'), s3 = Symbol('Symbol属性写法3');
+    let s1 = Symbol('Symbol属性写法1'),
+      s2 = Symbol('Symbol属性写法2'),
+      s3 = Symbol('Symbol属性写法3');
     let a = { att: 1 };
     a[s1] = 'Symbol属性写法1';
 
@@ -911,5 +919,6 @@ export default () => {
     }
   }
 
+  console.info(singleInstance.info, singleInstance.foo);
   return { globalSymbol };
 };
